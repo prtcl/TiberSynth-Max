@@ -1,0 +1,17 @@
+{
+  "name": "TiberSynth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "author": "Cory O'Brien <cory@prtcl.cc>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parallelshell 'npm run start:max'",
+    "start:max": "open synth/TiberSynth.maxpat",
+    "start": "npm run start:max"
+  },
+  "dependencies": {
+    "nodemon": "^1.15.1",
+    "parallelshell": "^3.0.2"
+  }
+}
