@@ -7,11 +7,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "parallelshell 'npm run start:max'",
+    "server": "NODE_ENV=production node server/main.js",
+    "server:dev": "NODE_ENV=development nodemon server/main.js",
     "start:max": "open synth/TiberSynth.maxpat",
-    "start": "npm run start:max"
+    "start": "npm run start:max && npm run server"
   },
   "dependencies": {
     "nodemon": "^1.15.1",
-    "parallelshell": "^3.0.2"
+    "parallelshell": "^3.0.2",
+    "plonk": "^1.1.0"
   }
 }
