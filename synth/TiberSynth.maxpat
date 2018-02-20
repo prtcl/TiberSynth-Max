@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 400.0, 92.0, 1187.0, 983.0 ],
+		"rect" : [ 258.0, 102.0, 1184.0, 980.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -1110,21 +1110,21 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "tiboscbank4~.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "tibosc~.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "tibpanner~.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
@@ -1132,27 +1132,27 @@
 , 			{
 				"name" : "pan2S.maxpat",
 				"bootpath" : "/Users/Shared/Max 7/Examples/spatialization/panning/lib",
-				"patcherrelativepath" : "../../../../../Shared/Max 7/Examples/spatialization/panning/lib",
+				"patcherrelativepath" : "../../../../Shared/Max 7/Examples/spatialization/panning/lib",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "tibamp~.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "tibexp.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "tiboscbank2~.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
+				"bootpath" : "~/Projects/TiberSynth/synth",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
