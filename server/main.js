@@ -12,9 +12,13 @@ const port = new osc.UDPPort({
 });
 
 const routes = {
-  ['/Noise1NeuralNetworks/x']: (args) => store.setX(args),
-  ['/Noise1NeuralNetworks/y']: (args) => store.setY(args),
-  ['/Pads/x']: () => store.randomize()
+  ['/Space/x']: (args) => store.setX(args),
+  ['/Space/y']: (args) => store.setY(args),
+  ['/Randomize/x']: ([val]) => {
+    if (val === 1) {
+      store.randomize();
+    }
+  }
 };
 
 port.on('ready', () => {
