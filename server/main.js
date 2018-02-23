@@ -31,6 +31,10 @@ port.on('ready', () => {
       address: '/gain',
       args: state.gain
     });
+    port.send({
+      address: '/freq',
+      args: state.freq
+    });
     state.spaces.forEach((s, i) => {
       port.send({
         address: `/space/${i}`,

@@ -1,3 +1,4 @@
+const { rand } = require('plonk');
 const createStore = require('./lib/createStore');
 const { createSpace, updateSpace, randomizeSpace } = require('./lib/space');
 
@@ -27,7 +28,10 @@ module.exports = createStore({
       updateSpace(space);
     });
   },
-  randomize ({ spaces }) {
+  randomize ({ freq, spaces }) {
+    freq.forEach((f, i) => {
+      freq[i] = rand(0, 1);
+    });
     spaces.forEach((space) => {
       randomizeSpace(space);
       updateSpace(space);
@@ -35,5 +39,6 @@ module.exports = createStore({
   }
 }, {
   gain: new Array(5).fill(0),
-  spaces: [8, 10, 10].map(createSpace)
+  freq: new Array(8).fill(0),
+  spaces: [8, 12, 10].map(createSpace)
 });
