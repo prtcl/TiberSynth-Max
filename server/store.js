@@ -2,6 +2,11 @@ const createStore = require('./lib/createStore');
 const { createSpace, updateSpace, randomizeSpace } = require('./lib/space');
 
 module.exports = createStore({
+  setGain ({ gain }, values) {
+    values.forEach((v, i) => {
+      gain[i] = v;
+    });
+  },
   setX ({ spaces }, values) {
     spaces.forEach((space, i) => {
       const x = values[i];
@@ -29,5 +34,6 @@ module.exports = createStore({
     });
   }
 }, {
+  gain: new Array(5).fill(0),
   spaces: [8, 10, 10].map(createSpace)
 });

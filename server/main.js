@@ -12,17 +12,25 @@ const port = new osc.UDPPort({
 });
 
 const routes = {
+  ['/Gain/x']: (args) => store.setGain(args),
   ['/Space/x']: (args) => store.setX(args),
   ['/Space/y']: (args) => store.setY(args),
   ['/Randomize/x']: ([val]) => {
     if (val === 1) {
       store.randomize();
+      port.send({
+        address: '/randomize'
+      });
     }
   }
 };
 
 port.on('ready', () => {
   store.subscribe((state) => {
+    port.send({
+      address: '/gain',
+      args: state.gain
+    });
     state.spaces.forEach((s, i) => {
       port.send({
         address: `/space/${i}`,
@@ -30,7 +38,6 @@ port.on('ready', () => {
       });
     });
   });
-
   store.randomize();
 });
 
