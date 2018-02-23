@@ -29,7 +29,5 @@ module.exports = createStore({
     });
   }
 }, {
-  spaces: new Array(3)
-    .fill(null)
-    .map(() => createSpace(10))
+  spaces: [8, 10, 10].map(createSpace)
 });
