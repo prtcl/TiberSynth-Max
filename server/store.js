@@ -40,5 +40,5 @@ module.exports = createStore({
 }, {
   gain: new Array(5).fill(0),
   freq: new Array(8).fill(0),
-  spaces: [8, 12, 10].map(createSpace)
+  spaces: [8, 12, 12].map(createSpace)
 });
