@@ -7,7 +7,8 @@
   "author": "Cory O'Brien <cory@prtcl.cc>",
   "license": "MIT",
   "scripts": {
-    "dev": "parallelshell 'npm run start:max' 'npm run server:dev'",
+    "dev": "parallelshell 'npm run start:max' 'npm run server:dev' 'npm run lemur'",
+    "lemur": "open lemur/TiberSYnth.jzml",
     "server:dev": "NODE_ENV=development PORT=12345 nodemon server/main.js",
     "server": "NODE_ENV=production PORT=12345 node server/main.js",
     "start:max": "open synth/TiberSynth.maxpat",
