@@ -1,9 +1,11 @@
 const { rand } = require('plonk');
 const createStore = require('./lib/createStore');
 const { createSpace, updateSpace, randomizeSpace } = require('./lib/space');
+const { createHistory, isAtEnd, pop, undo, redo } = require('./lib/history');
 
 const FREQ_SIZES = [0, 4, 4];
 const N_GAIN = 5;
+const N_BUTTONS = 6;
 const SPACE_SIZES = [8, 12, 12];
 const N_SPACES = SPACE_SIZES.length;
 
@@ -41,32 +43,75 @@ module.exports = createStore({
       updateSpace(space, pos);
     });
   },
-  randomize ({ freq, positions, spaces }, values) {
-    console.log(values);
-    // freq.forEach((f, i) => {
-    //   freq[i] = rand(0, 1);
-    // });
-    // spaces.forEach((space, i) => {
-    //   const pos = positions[i];
-    //   randomizeSpace(space);
-    //   updateSpace(space, pos);
-    // });
+  randomize ({
+    freqs,
+    histories,
+    positions,
+    spaces
+  }, values) {
+    const up = values.slice(0, N_BUTTONS);
+    const down = values.slice(N_BUTTONS, N_BUTTONS * 2);
+    spaces.forEach((space, i) => {
+      const shouldGoUp = up[i];
+      const shouldGoDown = down[i];
+      const history = histories[i];
+      if (shouldGoUp) {
+        if (isAtEnd(history)) {
+          const pos = positions[i];
+          const freq = freqs[i];
+          randomizeFreqs(freq);
+          randomizeSpace(space);
+          updateSpace(space, pos);
+          pop(history, { freq, space });
+        } else {
+          const { freq: newFreqs, space: newSpace } = redo(history);
+          freqs[i] = newFreqs;
+          spaces[i] = newSpace;
+        }
+      } else if (shouldGoDown) {
+        const { freq: oldFreqs, space: oldSpace } = undo(history);
+        freqs[i] = oldFreqs;
+        spaces[i] = oldSpace;
+      }
+    });
   },
-  everyone ({ freqs, positions, spaces }, values) {
-    console.log(values);
-    if (values[0] === 1) {
+  everyone ({
+    freqs,
+    histories,
+    positions,
+    spaces
+  }, values) {
+    const shouldGoUp = values[0];
+    const shouldGoDown = values[1];
+    if (shouldGoUp) {
       spaces.forEach((space, i) => {
-        const pos = positions[i];
-        const freq = freqs[i];
-        randomizeFreqs(freq);
-        randomizeSpace(space);
-        updateSpace(space, pos);
+        const history = histories[i];
+        if (isAtEnd(history)) {
+          const pos = positions[i];
+          const freq = freqs[i];
+          randomizeFreqs(freq);
+          randomizeSpace(space);
+          updateSpace(space, pos);
+          pop(history, { freq, space });
+        } else {
+          const { freq: newFreqs, space: newSpace } = redo(history);
+          freqs[i] = newFreqs;
+          spaces[i] = newSpace;
+        }
+      });
+    } else if (shouldGoDown) {
+      spaces.forEach((s, i) => {
+        const history = histories[i];
+        const { freq: oldFreqs, space: oldSpace } = undo(history);
+        freqs[i] = oldFreqs;
+        spaces[i] = oldSpace;
       });
     }
   }
 }, {
   freqs: FREQ_SIZES.map((n) => new Array(n).fill(0)),
   gain: new Array(N_GAIN).fill(0),
+  histories: new Array(N_SPACES).fill(null).map(createHistory),
   positions: new Array(N_SPACES).fill(null).map(() => ({ x: 0, y: 0 })),
   spaces: SPACE_SIZES.map(createSpace)
 });

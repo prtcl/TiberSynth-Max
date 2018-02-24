@@ -15,8 +15,18 @@ const routes = {
   ['/Gain/x']: (args) => store.setGain(args),
   ['/Space/x']: (args) => store.setX(args),
   ['/Space/y']: (args) => store.setY(args),
-  ['/Randomize/x']: (args) => store.randomize(args),
-  ['/Everyone/x']: (args) => store.everyone(args)
+  ['/Randomize/x']: (args) => {
+    if (!args.find((v) => v === 1)) {
+      return;
+    }
+    store.randomize(args);
+  },
+  ['/Everyone/x']: (args) => {
+    if (!args.find((v) => v === 1)) {
+      return;
+    }
+    store.everyone(args);
+  }
 };
 
 port.on('ready', () => {
