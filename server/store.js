@@ -2,43 +2,71 @@ const { rand } = require('plonk');
 const createStore = require('./lib/createStore');
 const { createSpace, updateSpace, randomizeSpace } = require('./lib/space');
 
+const FREQ_SIZES = [0, 4, 4];
+const N_GAIN = 5;
+const SPACE_SIZES = [8, 12, 12];
+const N_SPACES = SPACE_SIZES.length;
+
+const randomizeFreqs = (freqs) => {
+  for (let i = 0; i < freqs.length; i++) {
+    freqs[i] = rand(0, 1);
+  }
+};
+
 module.exports = createStore({
   setGain ({ gain }, values) {
     values.forEach((v, i) => {
       gain[i] = v;
     });
   },
-  setX ({ spaces }, values) {
+  setX ({ positions, spaces }, values) {
     spaces.forEach((space, i) => {
       const x = values[i];
-      if (space.position.x === x) {
+      const pos = positions[i];
+      if (pos.x === x) {
         return;
       }
-      space.position.x = x;
-      updateSpace(space);
+      pos.x = x;
+      updateSpace(space, pos);
     });
   },
-  setY ({ spaces }, values) {
+  setY ({ positions, spaces }, values) {
     spaces.forEach((space, i) => {
       const y = values[i];
-      if (space.position.y === y) {
+      const pos = positions[i];
+      if (pos.y === y) {
         return;
       }
-      space.position.y = y;
-      updateSpace(space);
+      pos.y = y;
+      updateSpace(space, pos);
     });
   },
-  randomize ({ freq, spaces }) {
-    freq.forEach((f, i) => {
-      freq[i] = rand(0, 1);
-    });
-    spaces.forEach((space) => {
-      randomizeSpace(space);
-      updateSpace(space);
-    });
+  randomize ({ freq, positions, spaces }, values) {
+    console.log(values);
+    // freq.forEach((f, i) => {
+    //   freq[i] = rand(0, 1);
+    // });
+    // spaces.forEach((space, i) => {
+    //   const pos = positions[i];
+    //   randomizeSpace(space);
+    //   updateSpace(space, pos);
+    // });
+  },
+  everyone ({ freqs, positions, spaces }, values) {
+    console.log(values);
+    if (values[0] === 1) {
+      spaces.forEach((space, i) => {
+        const pos = positions[i];
+        const freq = freqs[i];
+        randomizeFreqs(freq);
+        randomizeSpace(space);
+        updateSpace(space, pos);
+      });
+    }
   }
 }, {
-  gain: new Array(5).fill(0),
-  freq: new Array(8).fill(0),
-  spaces: [8, 12, 12].map(createSpace)
+  freqs: FREQ_SIZES.map((n) => new Array(n).fill(0)),
+  gain: new Array(N_GAIN).fill(0),
+  positions: new Array(N_SPACES).fill(null).map(() => ({ x: 0, y: 0 })),
+  spaces: SPACE_SIZES.map(createSpace)
 });

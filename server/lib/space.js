@@ -8,7 +8,6 @@ const calculateDistance = (x1 = 0, y1 = 0, x2 = 0, y2 = 0) => {
 const createPoint = () => ({ x: 0, y: 0, weight: 0 });
 
 const createSpace = (nPoints = 0) => ({
-  position: { x: 0, y: 0 },
   points: new Array(nPoints)
     .fill(null)
     .map(createPoint),
@@ -17,9 +16,8 @@ const createSpace = (nPoints = 0) => ({
 
 const updateSpace = ({
   points,
-  position: { x, y },
   values
-}) => {
+}, { x, y }) => {
   const len = points.length;
   let i = -1;
   while (++i < len) {

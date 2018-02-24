@@ -15,14 +15,8 @@ const routes = {
   ['/Gain/x']: (args) => store.setGain(args),
   ['/Space/x']: (args) => store.setX(args),
   ['/Space/y']: (args) => store.setY(args),
-  ['/Randomize/x']: ([val]) => {
-    if (val === 1) {
-      store.randomize();
-      port.send({
-        address: '/randomize'
-      });
-    }
-  }
+  ['/Randomize/x']: (args) => store.randomize(args),
+  ['/Everyone/x']: (args) => store.everyone(args)
 };
 
 port.on('ready', () => {
@@ -31,9 +25,11 @@ port.on('ready', () => {
       address: '/gain',
       args: state.gain
     });
-    port.send({
-      address: '/freq',
-      args: state.freq
+    state.freqs.forEach((freqs, i) => {
+      port.send({
+        address: `/freqs/${i}`,
+        args: freqs
+      });
     });
     state.spaces.forEach((s, i) => {
       port.send({
@@ -41,8 +37,9 @@ port.on('ready', () => {
         args: s.values
       });
     });
+    console.log(state);
   });
-  store.randomize();
+  store.everyone([1]);
 });
 
 port.on('message', ({ address, args }) => {
