@@ -53,7 +53,7 @@
 				"box" : 				{
 					"comment" : "Parameters",
 					"id" : "obj-4",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -67,11 +67,11 @@
 				"box" : 				{
 					"comment" : "FM Feedback",
 					"id" : "obj-27",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 385.0, 81.0, 30.0, 30.0 ],
 					"style" : ""
 				}
@@ -171,7 +171,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-1",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -562,44 +562,7 @@
 				}
 
 			}
- ],
-		"dependency_cache" : [ 			{
-				"name" : "tibosc~.maxpat",
-				"bootpath" : "~/Projects/TiberSynth/synth",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "tibpanner~.maxpat",
-				"bootpath" : "~/Projects/TiberSynth/synth",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "pan2S.maxpat",
-				"bootpath" : "/Users/Shared/Max 7/Examples/spatialization/panning/lib",
-				"patcherrelativepath" : "../../../../Shared/Max 7/Examples/spatialization/panning/lib",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "tibamp~.maxpat",
-				"bootpath" : "~/Projects/TiberSynth/synth",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "tibexp.maxpat",
-				"bootpath" : "~/Projects/TiberSynth/synth",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
-		"autosave" : 0
+ ]
 	}
 
 }

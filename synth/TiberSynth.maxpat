@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 667.0, 100.0, 1184.0, 980.0 ],
+		"rect" : [ 665.0, 101.0, 1184.0, 980.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -145,7 +145,6 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-132",
@@ -3891,7 +3890,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-4", 0 ],
-									"midpoints" : [ 222.5, 291.0, 437.5, 291.0 ],
 									"source" : [ "obj-16", 0 ]
 								}
 
@@ -3915,7 +3913,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 1 ],
-									"midpoints" : [ 659.5, 480.0, 449.166656, 480.0 ],
 									"source" : [ "obj-6", 0 ]
 								}
 

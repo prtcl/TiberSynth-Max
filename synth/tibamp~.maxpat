@@ -42,7 +42,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "float" ],
 					"patching_rect" : [ 333.0, 236.0, 43.0, 22.0 ],
 					"style" : "",
 					"text" : "tibexp"
@@ -92,7 +92,7 @@
 				"box" : 				{
 					"comment" : "Ramp",
 					"id" : "obj-10",
-					"index" : 0,
+					"index" : 4,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -106,7 +106,7 @@
 				"box" : 				{
 					"comment" : "Time",
 					"id" : "obj-9",
-					"index" : 0,
+					"index" : 3,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -120,7 +120,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-8",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -136,9 +136,9 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 333.0, 317.0, 93.0, 22.0 ],
+					"patching_rect" : [ 333.0, 317.0, 99.0, 22.0 ],
 					"style" : "",
-					"text" : "pack 0. 30 0.25"
+					"text" : "pack 0. 150 0.25"
 				}
 
 			}
@@ -172,7 +172,7 @@
 				"box" : 				{
 					"comment" : "Gain",
 					"id" : "obj-2",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -186,11 +186,11 @@
 				"box" : 				{
 					"comment" : "Input",
 					"id" : "obj-1",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 245.0, 81.0, 30.0, 30.0 ],
 					"style" : ""
 				}
@@ -274,16 +274,7 @@
 				}
 
 			}
- ],
-		"dependency_cache" : [ 			{
-				"name" : "tibexp.maxpat",
-				"bootpath" : "~/Documents/Max/Patches/TiberSynth",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
-		"autosave" : 0
+ ]
 	}
 
 }

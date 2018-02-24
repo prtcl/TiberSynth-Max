@@ -111,9 +111,9 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 771.5, 250.0, 93.0, 22.0 ],
+					"patching_rect" : [ 771.5, 250.0, 99.0, 22.0 ],
 					"style" : "",
-					"text" : "pack 0. 30 0.25"
+					"text" : "pack 0. 100 0.25"
 				}
 
 			}
@@ -277,7 +277,7 @@
 		"dependency_cache" : [ 			{
 				"name" : "pan2S.maxpat",
 				"bootpath" : "/Users/Shared/Max 7/Examples/spatialization/panning/lib",
-				"patcherrelativepath" : "../../../../../Shared/Max 7/Examples/spatialization/panning/lib",
+				"patcherrelativepath" : "../../../../Shared/Max 7/Examples/spatialization/panning/lib",
 				"type" : "JSON",
 				"implicit" : 1
 			}
