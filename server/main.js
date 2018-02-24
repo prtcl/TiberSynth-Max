@@ -49,7 +49,7 @@ port.on('ready', () => {
     });
     console.log(state);
   });
-  store.everyone([1]);
+  store.everyone([1, 0]);
 });
 
 port.on('message', ({ address, args }) => {
