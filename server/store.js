@@ -3,10 +3,10 @@ const createStore = require('./lib/createStore');
 const { createSpace, updateSpace, randomizeSpace } = require('./lib/space');
 const { createHistory, isAtEnd, pop, undo, redo } = require('./lib/history');
 
-const FREQ_SIZES = [0, 4, 4];
+const FREQ_SIZES = [0, 4, 4, 0];
 const N_GAIN = 5;
 const N_BUTTONS = 6;
-const SPACE_SIZES = [8, 12, 12];
+const SPACE_SIZES = [8, 12, 12, 12];
 const N_SPACES = SPACE_SIZES.length;
 
 const randomizeFreqs = (freqs) => {
