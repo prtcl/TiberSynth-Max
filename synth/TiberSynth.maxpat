@@ -1526,7 +1526,6 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-5",
@@ -2417,7 +2416,7 @@
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 1542.0, 464.0, 29.5, 22.0 ],
 													"style" : "",
-													"text" : "1"
+													"text" : "0"
 												}
 
 											}
@@ -2661,7 +2660,7 @@
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 897.0, 464.0, 29.5, 22.0 ],
 													"style" : "",
-													"text" : "0"
+													"text" : "1"
 												}
 
 											}
@@ -2715,7 +2714,7 @@
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 659.0, 366.0, 113.0, 22.0 ],
 													"style" : "",
-													"text" : "zmap 0. 1. 6. 7777."
+													"text" : "zmap 0. 1. 6. 6666."
 												}
 
 											}
@@ -2752,9 +2751,9 @@
 													"numinlets" : 5,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 434.0, 366.0, 127.0, 22.0 ],
+													"patching_rect" : [ 434.0, 366.0, 100.0, 22.0 ],
 													"style" : "",
-													"text" : "zmap 0. 1. 666. 7777."
+													"text" : "zmap 0. 1. 3. 33."
 												}
 
 											}
