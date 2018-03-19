@@ -26,7 +26,8 @@ const routes = {
       return;
     }
     store.everyone(args);
-  }
+  },
+  ['/Filter/x']: (args) => store.setFilter(args)
 };
 
 port.on('ready', () => {
@@ -46,6 +47,10 @@ port.on('ready', () => {
         address: `/space/${i}`,
         args: s.values
       });
+    });
+    port.send({
+      address: '/filter',
+      args: state.filter
     });
     console.log(state);
   });

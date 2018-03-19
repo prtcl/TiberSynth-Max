@@ -129,8 +129,14 @@ module.exports = createStore({
         goDown(freqs, spaces, i, history);
       }
     });
+  },
+  setFilter ({ filter }, values) {
+    values.forEach((value, i) => {
+      filter[i] = value;
+    });
   }
 }, {
+  filter: [0, 1],
   freqs: FREQ_SIZES.map((n) => new Array(n).fill(0)),
   gain: new Array(N_GAIN).fill(0),
   histories: new Array(N_SPACES).fill(null).map(createHistory),
