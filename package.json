@@ -2,7 +2,7 @@
   "private": true,
   "name": "TiberSynth",
   "version": "3.0.0",
-  "description": "",
+  "description": "TiberSynth (v3) build with Max, node, and Lemur",
   "main": "",
   "author": "Cory O'Brien <cory@prtcl.cc>",
   "license": "MIT",
